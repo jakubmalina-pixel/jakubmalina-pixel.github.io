@@ -8,19 +8,16 @@
         :root {
             --skoda-electric: #78faae;
             --skoda-emerald: #0e3a2f;
-            --skoda-green: #4ba82e;
             --bg-light: #f3f5f7;
             --border-color: #dde2e7;
             --text-main: #181c20;
             --text-muted: #5a6570;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-light);
@@ -28,7 +25,6 @@
             line-height: 1.5;
         }
 
-        /* Horní lišta */
         header {
             background-color: var(--skoda-emerald);
             color: white;
@@ -59,22 +55,10 @@
             letter-spacing: 0.5px;
         }
 
-        .header-price-box {
-            text-align: right;
-        }
+        .header-price-box { text-align: right; }
+        .header-price-box small { display: block; font-size: 0.75rem; color: #b8d4cc; }
+        .header-price-box strong { font-size: 1.35rem; color: var(--skoda-electric); }
 
-        .header-price-box small {
-            display: block;
-            font-size: 0.75rem;
-            color: #b8d4cc;
-        }
-
-        .header-price-box strong {
-            font-size: 1.35rem;
-            color: var(--skoda-electric);
-        }
-
-        /* Hlavní rozložení */
         .main-wrapper {
             max-width: 1360px;
             margin: 24px auto;
@@ -85,7 +69,6 @@
             align-items: start;
         }
 
-        /* Levý sloupec - Náhled a technická data (Sticky) */
         .left-column {
             position: sticky;
             top: 88px;
@@ -107,6 +90,7 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 10px;
+            gap: 10px;
         }
 
         .car-title-group h2 {
@@ -122,12 +106,7 @@
             font-weight: 600;
         }
 
-        .badges {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
+        .badges { display: flex; gap: 8px; flex-wrap: wrap; }
         .badge {
             background: rgba(255,255,255,0.85);
             border: 1px solid #d0d7de;
@@ -149,7 +128,6 @@
             filter: drop-shadow(0 18px 14px rgba(0,0,0,0.22));
         }
 
-        /* Rychlé technické parametry pod autem */
         .quick-specs {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -165,25 +143,11 @@
             border-right: 1px solid #e2e8f0;
         }
 
-        .q-spec-item:last-child {
-            border-right: none;
-        }
+        .q-spec-item:last-child { border-right: none; }
+        .q-spec-val { display: block; font-size: 1.1rem; font-weight: 800; color: var(--skoda-emerald); }
+        .q-spec-lbl { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
 
-        .q-spec-val {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--skoda-emerald);
-        }
-
-        .q-spec-lbl {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        /* Technická tabulka */
-        .tech-card {
+        .tech-card, .step-card {
             background: white;
             border-radius: 14px;
             padding: 24px;
@@ -206,12 +170,13 @@
             margin-bottom: 14px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
+            flex-wrap: wrap;
         }
 
         .tech-tab-btn {
             background: #f0f3f6;
             border: none;
-            padding: 6px 14px;
+            padding: 8px 14px;
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -230,37 +195,15 @@
             font-size: 0.9rem;
         }
 
-        table.tech-table tr {
-            border-bottom: 1px solid #f0f2f5;
-        }
+        table.tech-table tr { border-bottom: 1px solid #f0f2f5; }
+        table.tech-table td { padding: 9px 4px; }
+        table.tech-table td:first-child { color: var(--text-muted); }
+        table.tech-table td:last-child { text-align: right; font-weight: 700; color: var(--text-main); }
 
-        table.tech-table td {
-            padding: 9px 4px;
-        }
-
-        table.tech-table td:first-child {
-            color: var(--text-muted);
-        }
-
-        table.tech-table td:last-child {
-            text-align: right;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        /* Pravý sloupec - Kroky konfigurace */
         .right-column {
             display: flex;
             flex-direction: column;
             gap: 20px;
-        }
-
-        .step-card {
-            background: white;
-            border-radius: 14px;
-            padding: 24px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-            border: 1px solid var(--border-color);
         }
 
         .step-header {
@@ -284,13 +227,8 @@
             flex-shrink: 0;
         }
 
-        .step-header h3 {
-            margin: 0;
-            font-size: 1.15rem;
-            color: var(--skoda-emerald);
-        }
+        .step-header h3 { margin: 0; font-size: 1.15rem; color: var(--skoda-emerald); }
 
-        /* Výběrové karty (Modely, Výbavy, Motory) */
         .option-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -308,14 +246,12 @@
             border-radius: 10px;
             padding: 14px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s;
             background: #fff;
+            user-select: none;
         }
 
-        .select-card:hover {
-            border-color: #9ab3ac;
-        }
-
+        .select-card:hover { border-color: #9ab3ac; }
         .select-card.active {
             border-color: var(--skoda-emerald);
             background-color: #f2f9f6;
@@ -328,17 +264,11 @@
             font-weight: 700;
             font-size: 0.98rem;
             margin-bottom: 4px;
+            gap: 8px;
         }
 
-        .sc-price {
-            color: var(--skoda-emerald);
-            font-size: 0.9rem;
-        }
-
-        .sc-desc {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
+        .sc-price { color: var(--skoda-emerald); font-size: 0.9rem; white-space: nowrap; }
+        .sc-desc { font-size: 0.82rem; color: var(--text-muted); }
 
         .fuel-tag {
             display: inline-block;
@@ -355,12 +285,7 @@
         .fuel-elektro { background: #e8f5e9; color: #2e7d32; }
         .fuel-hybrid { background: #f3e5f5; color: #7b1fa2; }
 
-        /* Barvy */
-        .color-grid {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+        .color-grid { display: flex; gap: 14px; flex-wrap: wrap; }
 
         .color-swatch {
             width: 48px;
@@ -369,14 +294,11 @@
             border: 3px solid white;
             box-shadow: 0 0 0 1px #ccc;
             cursor: pointer;
-            transition: transform 0.2s;
-            position: relative;
+            transition: transform 0.15s;
+            padding: 0;
         }
 
-        .color-swatch:hover {
-            transform: scale(1.08);
-        }
-
+        .color-swatch:hover { transform: scale(1.08); }
         .color-swatch.active {
             transform: scale(1.12);
             box-shadow: 0 0 0 3px var(--skoda-emerald);
@@ -393,7 +315,6 @@
             border-radius: 6px;
         }
 
-        /* Příplatkové pakety (Checkboxy) */
         .addon-item {
             display: flex;
             align-items: flex-start;
@@ -402,13 +323,10 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             cursor: pointer;
-            transition: background 0.15s;
+            user-select: none;
         }
 
-        .addon-item:hover {
-            background: #f9fbfc;
-        }
-
+        .addon-item:hover { background: #f9fbfc; }
         .addon-item input[type="checkbox"] {
             width: 18px;
             height: 18px;
@@ -417,24 +335,10 @@
             cursor: pointer;
         }
 
-        .addon-details {
-            flex: 1;
-        }
+        .addon-details { flex: 1; }
+        .addon-title { font-weight: 700; font-size: 0.92rem; display: flex; justify-content: space-between; gap: 8px; }
+        .addon-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
 
-        .addon-title {
-            font-weight: 700;
-            font-size: 0.92rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .addon-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        /* Finální souhrn */
         .final-box {
             background: var(--skoda-emerald);
             color: white;
@@ -459,22 +363,10 @@
             align-items: baseline;
         }
 
-        .final-total span {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
+        .final-total span { font-size: 1.1rem; font-weight: 600; }
+        .final-total strong { font-size: 2rem; color: var(--skoda-electric); }
 
-        .final-total strong {
-            font-size: 2rem;
-            color: var(--skoda-electric);
-        }
-
-        .leasing-note {
-            text-align: right;
-            font-size: 0.82rem;
-            color: #a3c9be;
-            margin-top: 4px;
-        }
+        .leasing-note { text-align: right; font-size: 0.82rem; color: #a3c9be; margin-top: 4px; }
 
         .btn-primary {
             width: 100%;
@@ -487,14 +379,10 @@
             font-weight: 800;
             cursor: pointer;
             margin-top: 18px;
-            transition: filter 0.2s;
         }
 
-        .btn-primary:hover {
-            filter: brightness(0.92);
-        }
+        .btn-primary:hover { filter: brightness(0.92); }
 
-        /* Modální okno rekapitulace */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -529,21 +417,13 @@
         }
 
         @media (max-width: 980px) {
-            .main-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .left-column {
-                position: static;
-            }
+            .main-wrapper { grid-template-columns: 1fr; }
+            .left-column { position: static; }
         }
 
         @media (max-width: 540px) {
-            .option-grid {
-                grid-template-columns: 1fr;
-            }
-            .quick-specs {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .option-grid { grid-template-columns: 1fr; }
+            .quick-specs { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -553,12 +433,11 @@
     <div class="brand-logo">ŠKODA <span>| Konfigurátor</span></div>
     <div class="header-price-box">
         <small>Celková cena s DPH</small>
-        <strong id="header-price">619 900 Kč</strong>
+        <strong id="header-price">674 900 Kč</strong>
     </div>
 </header>
 
 <div class="main-wrapper">
-    <!-- LEVÝ SLOUPEC: Vizualizace + Technické tabulky -->
     <div class="left-column">
         <div class="preview-card">
             <div class="preview-top-bar">
@@ -585,27 +464,15 @@
                             <stop offset="100%" stop-color="#0f171e"/>
                         </linearGradient>
                     </defs>
-
-                    <!-- Stín -->
                     <ellipse cx="320" cy="218" rx="275" ry="13" fill="rgba(0,0,0,0.28)" />
-
-                    <!-- Karoserie -->
                     <path id="svg-body" fill="#f4f5f6" d="M 65,162 C 65,135 88,122 140,115 L 215,72 C 248,58 360,58 418,75 L 505,115 C 548,122 572,136 572,165 L 568,186 L 65,186 Z" />
                     <path id="svg-shine" fill="url(#bodyGrad)" d="M 65,162 C 65,135 88,122 140,115 L 215,72 C 248,58 360,58 418,75 L 505,115 C 548,122 572,136 572,165 L 568,186 L 65,186 Z" />
-
-                    <!-- Okna a lišty (chrom vs Sportline černá) -->
                     <path id="svg-windows" fill="url(#glassGrad)" stroke="#cbd5e1" stroke-width="2.5" d="M 162,113 L 222,79 C 250,67 355,67 408,81 L 480,113 Z" />
                     <rect x="312" y="68" width="10" height="45" fill="#18181b" />
-
-                    <!-- Světla -->
                     <path d="M 538,130 L 569,138 L 558,149 L 526,140 Z" fill="#e0f2fe" stroke="#94a3b8" stroke-width="1"/>
                     <path d="M 68,130 L 95,126 L 90,141 L 66,144 Z" fill="#dc2626" />
-
-                    <!-- Podběhy -->
                     <circle cx="165" cy="184" r="46" fill="#141416" />
                     <circle cx="475" cy="184" r="46" fill="#141416" />
-
-                    <!-- Zadní kolo -->
                     <g transform="translate(165, 184)">
                         <circle r="40" fill="#1f2024" />
                         <circle id="svg-rim-rear" r="24" fill="#d1d5db" stroke="#6b7280" stroke-width="2" />
@@ -617,8 +484,6 @@
                             <line x1="-15" y1="15" x2="15" y2="-15" />
                         </g>
                     </g>
-
-                    <!-- Přední kolo -->
                     <g transform="translate(475, 184)">
                         <circle r="40" fill="#1f2024" />
                         <circle id="svg-rim-front" r="24" fill="#d1d5db" stroke="#6b7280" stroke-width="2" />
@@ -633,11 +498,10 @@
                 </svg>
             </div>
 
-            <!-- Rychlé klíčové parametry -->
             <div class="quick-specs">
                 <div class="q-spec-item">
                     <span class="q-spec-val" id="qs-power">85 kW</span>
-                    <span class="q-spec-lbl">Výkon (115 k)</span>
+                    <span class="q-spec-lbl" id="qs-power-lbl">Výkon (115 k)</span>
                 </div>
                 <div class="q-spec-item">
                     <span class="q-spec-val" id="qs-accel">10,4 s</span>
@@ -654,152 +518,95 @@
             </div>
         </div>
 
-        <!-- Detailní technická tabulka -->
         <div class="tech-card">
             <h3>
                 <span>Technické údaje vozu</span>
                 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">Dle metodiky WLTP</span>
             </h3>
 
-            <div class="tech-tabs">
-                <button class="tech-tab-btn active" onclick="switchTechTab('motor', this)">Motor a výkony</button>
-                <button class="tech-tab-btn" onclick="switchTechTab('rozmery', this)">Rozměry a hmotnosti</button>
-                <button class="tech-tab-btn" onclick="switchTechTab('spotreba', this)">Spotřeba a emise</button>
+            <div class="tech-tabs" id="tech-tabs">
+                <button type="button" class="tech-tab-btn active" data-tab="motor">Motor a výkony</button>
+                <button type="button" class="tech-tab-btn" data-tab="rozmery">Rozměry a hmotnosti</button>
+                <button type="button" class="tech-tab-btn" data-tab="spotreba">Spotřeba a emise</button>
             </div>
 
-            <table class="tech-table" id="tech-table-body">
-                <!-- Dynamicky plněno přes JS -->
-            </table>
+            <table class="tech-table" id="tech-table-body"></table>
         </div>
     </div>
 
-    <!-- PRAVÝ SLOUPEC: Kroky konfigurace -->
     <div class="right-column">
-
-        <!-- Krok 1: Model -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">1</div>
-                <h3>Výběr modelu</h3>
-            </div>
+            <div class="step-header"><div class="step-num">1</div><h3>Výběr modelu</h3></div>
             <div class="option-grid" id="model-options"></div>
         </div>
 
-        <!-- Krok 2: Výbavový stupeň -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">2</div>
-                <h3>Výbavový stupeň</h3>
-            </div>
+            <div class="step-header"><div class="step-num">2</div><h3>Výbavový stupeň</h3></div>
             <div class="option-grid" id="trim-options"></div>
         </div>
 
-        <!-- Krok 3: Motorizace -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">3</div>
-                <h3>Motorizace a převodovka</h3>
-            </div>
+            <div class="step-header"><div class="step-num">3</div><h3>Motorizace a převodovka</h3></div>
             <div class="option-list" id="engine-options"></div>
         </div>
 
-        <!-- Krok 4: Barva exteriéru -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">4</div>
-                <h3>Barva exteriéru</h3>
-            </div>
+            <div class="step-header"><div class="step-num">4</div><h3>Barva exteriéru</h3></div>
             <div class="color-grid" id="color-options"></div>
             <div class="color-info-bar">
                 <span id="selected-color-name">Bílá Candy (nemetalická)</span>
-                <span id="selected-color-price">0 Kč</span>
+                <span id="selected-color-price">V ceně</span>
             </div>
         </div>
 
-        <!-- Krok 5: Kola -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">5</div>
-                <h3>Kola z lehké slitiny</h3>
-            </div>
+            <div class="step-header"><div class="step-num">5</div><h3>Kola z lehké slitiny</h3></div>
             <div class="option-list" id="wheel-options"></div>
         </div>
 
-        <!-- Krok 6: Interiér -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">6</div>
-                <h3>Design interiéru</h3>
-            </div>
+            <div class="step-header"><div class="step-num">6</div><h3>Design interiéru</h3></div>
             <div class="option-grid" id="interior-options"></div>
         </div>
 
-        <!-- Krok 7: Pakety a mimořádná výbava -->
         <div class="step-card">
-            <div class="step-header">
-                <div class="step-num">7</div>
-                <h3>Pakety a mimořádná výbava</h3>
-            </div>
+            <div class="step-header"><div class="step-num">7</div><h3>Pakety a mimořádná výbava</h3></div>
             <div class="option-list" id="addon-options"></div>
         </div>
 
-        <!-- Finální cenový souhrn -->
         <div class="final-box">
-            <div class="final-row">
-                <span>Základní cena modelu a výbavy</span>
-                <span id="sum-base">0 Kč</span>
-            </div>
-            <div class="final-row">
-                <span>Zvolená motorizace</span>
-                <span id="sum-engine">+ 0 Kč</span>
-            </div>
-            <div class="final-row">
-                <span>Lak, kola a interiér</span>
-                <span id="sum-style">+ 0 Kč</span>
-            </div>
-            <div class="final-row">
-                <span>Mimořádná výbava a pakety</span>
-                <span id="sum-addons">+ 0 Kč</span>
-            </div>
-            <div class="final-total">
-                <span>Celková cena vč. DPH</span>
-                <strong id="sum-total">0 Kč</strong>
-            </div>
-            <div class="leasing-note" id="leasing-estimate">Orientační splátka Škoda Financial Services: 7 490 Kč / měs.</div>
-            <button class="btn-primary" onclick="openSummaryModal()">Dokončit a vygenerovat kód konfigurace</button>
+            <div class="final-row"><span>Základní cena modelu a výbavy</span><span id="sum-base">0 Kč</span></div>
+            <div class="final-row"><span>Zvolená motorizace</span><span id="sum-engine">+ 0 Kč</span></div>
+            <div class="final-row"><span>Lak, kola a interiér</span><span id="sum-style">+ 0 Kč</span></div>
+            <div class="final-row"><span>Mimořádná výbava a pakety</span><span id="sum-addons">+ 0 Kč</span></div>
+            <div class="final-total"><span>Celková cena vč. DPH</span><strong id="sum-total">0 Kč</strong></div>
+            <div class="leasing-note" id="leasing-estimate">Orientační splátka: 7 960 Kč / měs.</div>
+            <button type="button" class="btn-primary" id="btn-open-modal">Dokončit a vygenerovat kód konfigurace</button>
         </div>
-
     </div>
 </div>
 
-<!-- Modální okno s rekapitulací -->
 <div class="modal-overlay" id="summary-modal">
     <div class="modal-box">
         <div style="display:flex; justify-content:space-between; align-items:center;">
             <h2 style="margin:0; color:var(--skoda-emerald);">Rekapitulace vaší konfigurace</h2>
-            <button onclick="closeSummaryModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+            <button type="button" id="btn-close-modal-x" style="background:none; border:none; font-size:1.6rem; cursor:pointer;">&times;</button>
         </div>
         <p style="color:var(--text-muted); margin-bottom:4px;">Váš unikátní kód pro prodejce Škoda Auto:</p>
         <div class="config-code-pill" id="modal-code">SK-OCT-2026</div>
-        
         <table class="tech-table" id="modal-summary-table" style="margin-top:14px;"></table>
-
         <div style="display:flex; gap:12px; margin-top:22px;">
-            <button class="btn-primary" style="margin-top:0;" onclick="window.print()">Vytisknout / Uložit do PDF</button>
-            <button onclick="closeSummaryModal()" style="padding:14px 20px; border-radius:8px; border:1px solid #ccc; background:white; font-weight:bold; cursor:pointer;">Zavřít</button>
+            <button type="button" class="btn-primary" id="btn-print" style="margin-top:0;">Vytisknout / Uložit do PDF</button>
+            <button type="button" id="btn-close-modal" style="padding:14px 20px; border-radius:8px; border:1px solid #ccc; background:white; font-weight:bold; cursor:pointer;">Zavřít</button>
         </div>
     </div>
 </div>
 
 <script>
-    // DATABÁZE MODELŮ A TECHNICKÝCH DAT
+document.addEventListener('DOMContentLoaded', () => {
     const MODELS = {
         fabia: {
-            id: 'fabia',
-            name: 'Škoda Fabia',
-            basePrice: 399900,
-            shape: 'hatch',
-            desc: 'Kompaktní městský hatchback',
+            id: 'fabia', name: 'Škoda Fabia', basePrice: 399900, shape: 'hatch', desc: 'Kompaktní městský hatchback',
             dimensions: { length: '4 108 mm', width: '1 780 mm', height: '1 459 mm', wheelbase: '2 564 mm', trunk: '380 / 1 190 l', weight: '1 142 kg', tank: '40 l' },
             engines: [
                 { id: 'f1', name: '1.0 MPI 59 kW', trans: '5° manuální', drive: 'Přední', fuel: 'benzin', fuelLabel: 'Benzín', price: 0, kw: 59, hp: 80, torque: '93 Nm', accel: '15,5 s', vmax: '179 km/h', cons: '5,1 l/100 km', co2: '115 g/km', cyl: '3 válce / 999 cm³' },
@@ -809,11 +616,7 @@
             ]
         },
         octavia: {
-            id: 'octavia',
-            name: 'Škoda Octavia',
-            basePrice: 619900,
-            shape: 'sedan',
-            desc: 'Ikona značky, prostorný liftback',
+            id: 'octavia', name: 'Škoda Octavia', basePrice: 619900, shape: 'sedan', desc: 'Ikona značky, prostorný liftback',
             dimensions: { length: '4 698 mm', width: '1 829 mm', height: '1 470 mm', wheelbase: '2 686 mm', trunk: '600 / 1 555 l', weight: '1 355 kg', tank: '45 l' },
             engines: [
                 { id: 'o1', name: '1.5 TSI 85 kW', trans: '6° manuální', drive: 'Přední', fuel: 'benzin', fuelLabel: 'Benzín', price: 0, kw: 85, hp: 115, torque: '220 Nm', accel: '10,4 s', vmax: '203 km/h', cons: '5,3 l/100 km', co2: '120 g/km', cyl: '4 válce / 1 498 cm³' },
@@ -824,11 +627,7 @@
             ]
         },
         kodiaq: {
-            id: 'kodiaq',
-            name: 'Škoda Kodiaq',
-            basePrice: 979900,
-            shape: 'suv',
-            desc: 'Velké rodinné SUV až pro 7 osob',
+            id: 'kodiaq', name: 'Škoda Kodiaq', basePrice: 979900, shape: 'suv', desc: 'Velké rodinné SUV až pro 7 osob',
             dimensions: { length: '4 758 mm', width: '1 864 mm', height: '1 659 mm', wheelbase: '2 791 mm', trunk: '910 / 2 105 l', weight: '1 664 kg', tank: '58 l' },
             engines: [
                 { id: 'k1', name: '1.5 TSI m-HEV 110 kW DSG', trans: '7° automat DSG', drive: 'Přední', fuel: 'hybrid', fuelLabel: 'Mild-Hybrid', price: 0, kw: 110, hp: 150, torque: '250 Nm', accel: '9,7 s', vmax: '207 km/h', cons: '6,0 l/100 km', co2: '136 g/km', cyl: '4 válce / 1 498 cm³' },
@@ -838,11 +637,7 @@
             ]
         },
         enyaq: {
-            id: 'enyaq',
-            name: 'Škoda Enyaq',
-            basePrice: 1149000,
-            shape: 'suv',
-            desc: 'Čistě elektrické SUV nové generace',
+            id: 'enyaq', name: 'Škoda Enyaq', basePrice: 1149000, shape: 'suv', desc: 'Čistě elektrické SUV nové generace',
             dimensions: { length: '4 649 mm', width: '1 879 mm', height: '1 616 mm', wheelbase: '2 765 mm', trunk: '585 / 1 710 l', weight: '2 135 kg', tank: 'Baterie 82 kWh' },
             engines: [
                 { id: 'e1', name: 'Enyaq 60 (150 kW)', trans: '1° redukční', drive: 'Zadní', fuel: 'elektro', fuelLabel: 'Elektro (400 km)', price: 0, kw: 150, hp: 204, torque: '310 Nm', accel: '8,1 s', vmax: '160 km/h', cons: '15,6 kWh/100 km', co2: '0 g/km', cyl: 'Synchronní elektromotor' },
@@ -896,4 +691,288 @@
     const SVG_SHAPES = {
         hatch: {
             body: "M 95,162 C 95,135 112,122 155,115 L 210,75 C 238,62 345,62 395,78 L 478,115 C 518,122 542,136 542,165 L 538,186 L 95,186 Z",
-            windows: "M 172,113 L 216,81 C 242,70 340,70
+            windows: "M 172,113 L 216,81 C 242,70 340,70 388,83 L 455,113 Z"
+        },
+        sedan: {
+            body: "M 65,162 C 65,135 88,122 140,115 L 215,72 C 248,58 360,58 418,75 L 505,115 C 548,122 572,136 572,165 L 568,186 L 65,186 Z",
+            windows: "M 162,113 L 222,79 C 250,67 355,67 408,81 L 480,113 Z"
+        },
+        suv: {
+            body: "M 62,162 L 74,95 C 82,68 106,56 148,54 L 380,54 C 418,54 445,74 478,106 L 548,116 C 568,120 576,136 576,165 L 572,186 L 62,186 Z",
+            windows: "M 95,105 L 106,70 C 114,63 132,63 158,63 L 375,63 C 405,63 426,78 455,105 Z"
+        }
+    };
+
+    const state = {
+        modelId: 'octavia',
+        trimId: 'selection',
+        engineId: 'o1',
+        colorId: 'candy',
+        wheelId: 'w17',
+        interiorId: 'loft',
+        addons: new Set(),
+        activeTechTab: 'motor'
+    };
+
+    function formatPrice(num) {
+        return new Intl.NumberFormat('cs-CZ').format(num) + ' Kč';
+    }
+
+    function renderAllOptions() {
+        document.getElementById('model-options').innerHTML = Object.values(MODELS).map(m => `
+            <div class="select-card ${state.modelId === m.id ? 'active' : ''}" data-action="model" data-id="${m.id}">
+                <div class="sc-top"><span>${m.name}</span><span class="sc-price">od ${formatPrice(m.basePrice)}</span></div>
+                <div class="sc-desc">${m.desc}</div>
+            </div>
+        `).join('');
+
+        document.getElementById('trim-options').innerHTML = TRIMS.map(t => `
+            <div class="select-card ${state.trimId === t.id ? 'active' : ''}" data-action="trim" data-id="${t.id}">
+                <div class="sc-top"><span>${t.name}</span><span class="sc-price">${t.price === 0 ? 'Základ' : '+ ' + formatPrice(t.price)}</span></div>
+                <div class="sc-desc">${t.desc}</div>
+            </div>
+        `).join('');
+
+        const currentModel = MODELS[state.modelId];
+        document.getElementById('engine-options').innerHTML = currentModel.engines.map(e => `
+            <div class="select-card ${state.engineId === e.id ? 'active' : ''}" data-action="engine" data-id="${e.id}">
+                <div class="sc-top">
+                    <span><span class="fuel-tag fuel-${e.fuel}">${e.fuelLabel}</span>${e.name}</span>
+                    <span class="sc-price">${e.price === 0 ? 'V ceně' : '+ ' + formatPrice(e.price)}</span>
+                </div>
+                <div class="sc-desc">${e.trans} • ${e.drive} • ${e.hp} koní (${e.torque}) • Spotřeba ${e.cons}</div>
+            </div>
+        `).join('');
+
+        document.getElementById('color-options').innerHTML = COLORS.map(c => `
+            <button type="button" class="color-swatch ${state.colorId === c.id ? 'active' : ''}" 
+                 style="background-color: ${c.hex};" 
+                 title="${c.name}" 
+                 data-action="color" data-id="${c.id}"></button>
+        `).join('');
+
+        document.getElementById('wheel-options').innerHTML = WHEELS.map(w => `
+            <div class="select-card ${state.wheelId === w.id ? 'active' : ''}" data-action="wheel" data-id="${w.id}">
+                <div class="sc-top"><span>${w.name}</span><span class="sc-price">${w.price === 0 ? 'V ceně' : '+ ' + formatPrice(w.price)}</span></div>
+                <div class="sc-desc">${w.desc}</div>
+            </div>
+        `).join('');
+
+        document.getElementById('interior-options').innerHTML = INTERIORS.map(i => `
+            <div class="select-card ${state.interiorId === i.id ? 'active' : ''}" data-action="interior" data-id="${i.id}">
+                <div class="sc-top"><span>${i.name}</span><span class="sc-price">${i.price === 0 ? 'V ceně' : '+ ' + formatPrice(i.price)}</span></div>
+                <div class="sc-desc">${i.desc}</div>
+            </div>
+        `).join('');
+
+        document.getElementById('addon-options').innerHTML = ADDONS.map(a => `
+            <label class="addon-item">
+                <input type="checkbox" data-action="addon" data-id="${a.id}" ${state.addons.has(a.id) ? 'checked' : ''}>
+                <div class="addon-details">
+                    <div class="addon-title"><span>${a.name}</span><span style="color:var(--skoda-emerald);">+ ${formatPrice(a.price)}</span></div>
+                    <div class="addon-desc">${a.desc}</div>
+                </div>
+            </label>
+        `).join('');
+    }
+
+    function updateUI() {
+        const model = MODELS[state.modelId];
+        const trim = TRIMS.find(t => t.id === state.trimId);
+        const engine = model.engines.find(e => e.id === state.engineId) || model.engines[0];
+        const color = COLORS.find(c => c.id === state.colorId);
+        const wheel = WHEELS.find(w => w.id === state.wheelId);
+        const interior = INTERIORS.find(i => i.id === state.interiorId);
+
+        document.getElementById('view-model-name').innerText = model.name;
+        document.getElementById('view-trim-engine').innerText = `${trim.name} • ${engine.name} (${engine.trans})`;
+        document.getElementById('view-color-badge').innerText = color.short;
+        document.getElementById('view-wheel-badge').innerText = wheel.short;
+
+        document.getElementById('selected-color-name').innerText = color.name;
+        document.getElementById('selected-color-price').innerText = color.price === 0 ? 'V ceně' : '+ ' + formatPrice(color.price);
+
+        const shapeData = SVG_SHAPES[model.shape];
+        document.getElementById('svg-body').setAttribute('d', shapeData.body);
+        document.getElementById('svg-shine').setAttribute('d', shapeData.body);
+        document.getElementById('svg-windows').setAttribute('d', shapeData.windows);
+        document.getElementById('svg-body').setAttribute('fill', color.hex);
+        document.getElementById('svg-windows').setAttribute('stroke', trim.windowStroke);
+
+        document.getElementById('svg-rim-rear').setAttribute('r', wheel.radius);
+        document.getElementById('svg-rim-front').setAttribute('r', wheel.radius);
+        document.getElementById('svg-rim-rear').setAttribute('fill', wheel.color);
+        document.getElementById('svg-rim-front').setAttribute('fill', wheel.color);
+
+        document.getElementById('qs-power').innerText = `${engine.kw} kW`;
+        document.getElementById('qs-power-lbl').innerText = `Výkon (${engine.hp} k)`;
+        document.getElementById('qs-accel').innerText = engine.accel;
+        document.getElementById('qs-cons').innerText = engine.cons.split('/')[0];
+        document.getElementById('qs-trunk').innerText = model.dimensions.trunk.split('/')[0];
+
+        renderTechTable(model, engine);
+
+        let addonsSum = 0;
+        state.addons.forEach(id => {
+            const found = ADDONS.find(a => a.id === id);
+            if (found) addonsSum += found.price;
+        });
+
+        const baseAndTrim = model.basePrice + trim.price;
+        const styleSum = color.price + wheel.price + interior.price;
+        const grandTotal = baseAndTrim + engine.price + styleSum + addonsSum;
+
+        document.getElementById('sum-base').innerText = formatPrice(baseAndTrim);
+        document.getElementById('sum-engine').innerText = '+ ' + formatPrice(engine.price);
+        document.getElementById('sum-style').innerText = '+ ' + formatPrice(styleSum);
+        document.getElementById('sum-addons').innerText = '+ ' + formatPrice(addonsSum);
+        document.getElementById('sum-total').innerText = formatPrice(grandTotal);
+        document.getElementById('header-price').innerText = formatPrice(grandTotal);
+
+        const monthly = Math.round(grandTotal * 0.0118);
+        document.getElementById('leasing-estimate').innerText = `Orientační splátka Škoda Financial Services: ${new Intl.NumberFormat('cs-CZ').format(monthly)} Kč / měs.`;
+    }
+
+    function renderTechTable(model, engine) {
+        const tbody = document.getElementById('tech-table-body');
+        let rows = [];
+
+        if (state.activeTechTab === 'motor') {
+            rows = [
+                ['Motor / pohonná jednotka', engine.cyl],
+                ['Maximální výkon', `${engine.kw} kW (${engine.hp} koní)`],
+                ['Maximální točivý moment', engine.torque],
+                ['Převodovka', engine.trans],
+                ['Pohon nápravy', engine.drive],
+                ['Zrychlení 0–100 km/h', engine.accel],
+                ['Maximální rychlost', engine.vmax]
+            ];
+        } else if (state.activeTechTab === 'rozmery') {
+            rows = [
+                ['Délka vozu', model.dimensions.length],
+                ['Šířka vozu', model.dimensions.width],
+                ['Výška vozu', model.dimensions.height],
+                ['Rozvor náprav', model.dimensions.wheelbase],
+                ['Objem zavazadlového prostoru', model.dimensions.trunk],
+                ['Pohotovostní hmotnost', model.dimensions.weight],
+                ['Objem nádrže / kapacita baterie', model.dimensions.tank]
+            ];
+        } else {
+            rows = [
+                ['Palivo / energie', engine.fuelLabel],
+                ['Kombinovaná spotřeba (WLTP)', engine.cons],
+                ['Kombinované emise CO₂', engine.co2],
+                ['Emisní norma', 'Euro 6e']
+            ];
+        }
+
+        tbody.innerHTML = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+    }
+
+    // Delegování kliknutí pro všechny prvky v pravém sloupci
+    document.querySelector('.right-column').addEventListener('click', (e) => {
+        const target = e.target.closest('[data-action]');
+        if (!target) return;
+
+        const action = target.getAttribute('data-action');
+        const id = target.getAttribute('data-id');
+
+        if (action === 'model') {
+            state.modelId = id;
+            state.engineId = MODELS[id].engines[0].id;
+            renderAllOptions();
+            updateUI();
+        } else if (action === 'trim') {
+            state.trimId = id;
+            renderAllOptions();
+            updateUI();
+        } else if (action === 'engine') {
+            state.engineId = id;
+            renderAllOptions();
+            updateUI();
+        } else if (action === 'color') {
+            state.colorId = id;
+            renderAllOptions();
+            updateUI();
+        } else if (action === 'wheel') {
+            state.wheelId = id;
+            renderAllOptions();
+            updateUI();
+        } else if (action === 'interior') {
+            state.interiorId = id;
+            renderAllOptions();
+            updateUI();
+        }
+    });
+
+    // Obsluha zaškrtávacích políček (checkboxů)
+    document.getElementById('addon-options').addEventListener('change', (e) => {
+        if (e.target.matches('input[data-action="addon"]')) {
+            const id = e.target.getAttribute('data-id');
+            if (e.target.checked) {
+                state.addons.add(id);
+            } else {
+                state.addons.delete(id);
+            }
+            updateUI();
+        }
+    });
+
+    // Přepínání záložek technických dat
+    document.getElementById('tech-tabs').addEventListener('click', (e) => {
+        const btn = e.target.closest('.tech-tab-btn');
+        if (!btn) return;
+        state.activeTechTab = btn.getAttribute('data-tab');
+        document.querySelectorAll('.tech-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateUI();
+    });
+
+    // Modální okno rekapitulace
+    document.getElementById('btn-open-modal').addEventListener('click', () => {
+        const model = MODELS[state.modelId];
+        const trim = TRIMS.find(t => t.id === state.trimId);
+        const engine = model.engines.find(e => e.id === state.engineId);
+        const color = COLORS.find(c => c.id === state.colorId);
+        const wheel = WHEELS.find(w => w.id === state.wheelId);
+        const interior = INTERIORS.find(i => i.id === state.interiorId);
+
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('modal-code').innerText = `SK-${model.id.toUpperCase().slice(0,3)}-${randomNum}`;
+
+        const selectedAddons = Array.from(state.addons).map(id => ADDONS.find(a => a.id === id).name);
+        const addonsText = selectedAddons.length > 0 ? selectedAddons.join(', ') : 'Bez mimořádné výbavy';
+
+        const summaryRows = [
+            ['Model', model.name],
+            ['Výbavový stupeň', trim.name],
+            ['Motorizace', `${engine.name} (${engine.trans})`],
+            ['Výkon a spotřeba', `${engine.kw} kW (${engine.hp} k) • ${engine.cons}`],
+            ['Lak exteriéru', color.name],
+            ['Kola', wheel.name],
+            ['Interiér', interior.name],
+            ['Pakety a výbava', addonsText],
+            ['Celková cena s DPH', document.getElementById('sum-total').innerText]
+        ];
+
+        document.getElementById('modal-summary-table').innerHTML = summaryRows
+            .map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+
+        document.getElementById('summary-modal').style.display = 'flex';
+    });
+
+    document.getElementById('btn-close-modal').addEventListener('click', () => {
+        document.getElementById('summary-modal').style.display = 'none';
+    });
+    document.getElementById('btn-close-modal-x').addEventListener('click', () => {
+        document.getElementById('summary-modal').style.display = 'none';
+    });
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+
+    // Inicializace
+    renderAllOptions();
+    updateUI();
+});
+</script>
+</body>
+</html>
