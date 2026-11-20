@@ -1,1 +1,248 @@
-hello
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfigurátor Škoda Auto</title>
+    <style>
+        :root {
+            --skoda-green: #4ba82e;
+            --dark-gray: #1a1a1a;
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: #333;
+        }
+
+        .configurator-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+
+        .preview-section {
+            flex: 1 1 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        .car-silhouette {
+            width: 100%;
+            height: 200px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
+        }
+
+        .controls-section {
+            flex: 1 1 50%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: var(--dark-gray);
+            border-bottom: 3px solid var(--skoda-green);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .control-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .color-btn:hover, .color-btn.active {
+            transform: scale(1.15);
+            border-color: var(--skoda-green);
+        }
+
+        .summary-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .total-price {
+            font-size: 2rem;
+            color: var(--skoda-green);
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--skoda-green);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #3b8723;
+        }
+
+        @media (max-width: 768px) {
+            .preview-section, .controls-section {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="configurator-container">
+        <!-- Vizuální náhled -->
+        <div class="preview-section" id="preview-bg">
+            <div class="car-silhouette" id="car-name-display">
+                Octavia
+            </div>
+        </div>
+
+        <!-- Ovládací prvky -->
+        <div class="controls-section">
+            <h1>Konfigurátor Škoda</h1>
+
+            <div class="control-group">
+                <label for="model">Model vozu</label>
+                <select id="model" onchange="updateConfigurator()">
+                    <option value="619900" data-name="Octavia">Octavia (od 619 900 Kč)</option>
+                    <option value="849900" data-name="Superb">Superb (od 849 900 Kč)</option>
+                    <option value="979900" data-name="Kodiaq">Kodiaq (od 979 900 Kč)</option>
+                    <option value="1149000" data-name="Enyaq">Enyaq (od 1 149 000 Kč)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Barva exteriéru</label>
+                <div class="color-options">
+                    <button class="color-btn active" data-color="#ffffff" data-price="0" style="background: #ffffff;" onclick="selectColor(this)"></button>
+                    <button class="color-btn" data-color="#000000" data-price="15000" style="background: #000000;" onclick="selectColor(this)"></button>
+                    <button class="color-btn" data-color="#1b3f8b" data-price="20000" style="background: #1b3f8b;" onclick="selectColor(this)"></button>
+                    <button class="color-btn" data-color="#a6192e" data-price="20000" style="background: #a6192e;" onclick="selectColor(this)"></button>
+                    <button class="color-btn" data-color="#4ba82e" data-price="25000" style="background: #4ba82e;" onclick="selectColor(this)"></button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="wheels">Kola z lehké slitiny</label>
+                <select id="wheels" onchange="updateConfigurator()">
+                    <option value="0">17" kola Rotare stříbrná (0 Kč)</option>
+                    <option value="16000">18" kola Perseus leštěná (+16 000 Kč)</option>
+                    <option value="26000">19" kola Altair antracitová (+26 000 Kč)</option>
+                </select>
+            </div>
+
+            <div class="summary-section">
+                <p>Celková cena:</p>
+                <p class="total-price"><span id="price-display">619 900</span> Kč</p>
+                <button class="cta-button" onclick="alert('Vaše konfigurace byla odeslána!')">Objednat konfiguraci</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentColorPrice = 0;
+
+        function updateConfigurator() {
+            // Získání vybraného modelu
+            const modelSelect = document.getElementById('model');
+            const selectedModelOption = modelSelect.options[modelSelect.selectedIndex];
+            const basePrice = parseInt(selectedModelOption.value);
+            const modelName = selectedModelOption.getAttribute('data-name');
+
+            // Aktualizace názvu v náhledu
+            document.getElementById('car-name-display').innerText = modelName;
+
+            // Získání ceny kol
+            const wheelsSelect = document.getElementById('wheels');
+            const wheelsPrice = parseInt(wheelsSelect.value);
+
+            // Výpočet celkové ceny
+            const totalPrice = basePrice + currentColorPrice + wheelsPrice;
+
+            // Formátování a zobrazení ceny (mezery tisíců)
+            const formattedPrice = new Intl.NumberFormat('cs-CZ').format(totalPrice);
+            document.getElementById('price-display').innerText = formattedPrice;
+        }
+
+        function selectColor(btn) {
+            // Odstranění třídy active ze všech tlačítek
+            document.querySelectorAll('.color-btn').forEach(el => el.classList.remove('active'));
+            // Přidání třídy active kliknutému tlačítku
+            btn.classList.add('active');
+
+            // Změna barvy pozadí v sekci náhledu
+            const colorHex = btn.getAttribute('data-color');
+            document.getElementById('preview-bg').style.backgroundColor = colorHex;
+
+            // Nastavení nové ceny barvy a aktualizace celkové ceny
+            currentColorPrice = parseInt(btn.getAttribute('data-price'));
+            updateConfigurator();
+        }
+
+        // Inicializace při prvním načtení stránky
+        updateConfigurator();
+    </script>
+</body>
+</html>
